@@ -25,9 +25,16 @@ namespace Sgk.Libs.NDashButton
         /// <exception cref="FormatException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
         public DashButton(string name, string macAddress)
-            : this(name, PhysicalAddress.Parse(macAddress))
+            : this(name, parseMacAddress(macAddress))
         {
         }
+
+        private static PhysicalAddress parseMacAddress(string macAddress)
+        {
+            if (macAddress == null) throw new ArgumentNullException(nameof(macAddress));
+            return PhysicalAddress.Parse(macAddress.Replace(":", ""));
+        }
+
         /// <summary>
         /// Constructs DashButton object.
         /// </summary>
