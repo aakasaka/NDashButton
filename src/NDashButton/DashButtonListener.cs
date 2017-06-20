@@ -26,13 +26,13 @@ namespace Sgk.Libs.NDashButton
         public event EventHandler<DashButtonPushedEventArgs> Pushed;
 
         /// <summary>
-        /// Gets or sets interval to ignore the push as duplication.
+        /// Gets or sets time span to ignore the subsequent push as duplication.
         /// Default: 10 seconds.
         /// </summary>
         public TimeSpan DuplicateIgnoreInterval { get; set; } = TimeSpan.FromSeconds(10);
 
         /// <summary>
-        /// Gets or sets read timeout span.
+        /// Gets or sets packet read timeout span.
         /// Default: 1 second.
         /// </summary>
         public TimeSpan ReadTimeout { get; set; } = TimeSpan.FromSeconds(1);
@@ -84,7 +84,7 @@ namespace Sgk.Libs.NDashButton
         }
 
         /// <summary>
-        /// Start capturing the packets.
+        /// Start monitoring.
         /// </summary>
         public void Start()
         {
@@ -125,7 +125,7 @@ namespace Sgk.Libs.NDashButton
         }
 
         /// <summary>
-        /// Stop capturing.
+        /// Stop monitoring.
         /// </summary>
         public void Stop()
         {
